@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiro IDE下载 - 亚马逊AI编程工具 | 规范驱动开发</title>
+    <meta name="description" content="Kiro IDE官方下载，基于Claude Sonnet 4.0的AI编程工具，支持规格驱动开发，兼容VS Code生态，免费预览版下载">
+    <meta name="keywords" content="Kiro IDE下载,亚马逊AI编程工具,规范驱动开发,Claude Sonnet 4.0,AI编程IDE,Kiro下载">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #9370DB; /* 亮紫色 - logo主色 */
+            --secondary-color: #8A2BE2; /* 稍深紫色 */
+            --light-purple: #9F7AEA; /* 浅紫色 */
+            --white: #FFFFFF; /* 纯白色 */
+            --dark-text: #333333; /* 深色文字 */
+            --card-shadow: 0 4px 15px rgba(147, 112, 219, 0.2);
+        }
+        
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .navbar {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(147, 112, 219, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-link {
+            color: var(--dark-text);
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .hero-section {
+            background-color: var(--primary-color);
+            padding: 5rem 0;
+            position: relative;
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        .hero-section h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+        
+        .download-btn {
+            background-color: var(--white);
+            color: var(--primary-color);
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 1rem;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            color: var(--secondary-color);
+        }
+        
+        .section-white {
+            background-color: var(--white);
+            color: var(--dark-text);
+            padding: 5rem 0;
+        }
+        
+        .section-purple {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+        
+        .section-white .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+        
+        .section-purple .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--white);
+            border-radius: 2px;
+        }
+        
+        .feature-card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+            height: 100%;
+            background-color: var(--white);
+            padding: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(147, 112, 219, 0.15);
+        }
+        
+        .download-card {
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            background-color: var(--white);
+            border: 1px solid rgba(147, 112, 219, 0.1);
+            overflow: hidden;
+            color: var(--dark-text);
+        }
+        
+        .download-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-shadow);
+        }
+        
+        .download-card:hover .os-icon {
+            transform: scale(1.1);
+        }
+        
+        .os-icon {
+            transition: transform 0.3s ease;
+            margin-right: 15px;
+            color: var(--primary-color);
+        }
+        
+        .footer {
+            background-color: var(--dark-text);
+            color: var(--white);
+            padding: 3rem 0;
+            margin-top: 0;
+        }
+        
+        .contact-card {
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+            background-color: rgba(255,255,255,0.05);
+        }
+        
+        .contact-card:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+        }
+        
+        .contact-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--white);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        .vertical-text {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            font-size: 1.2rem;
+            color: var(--white);
+            font-weight: 500;
+            margin-left: 10px;
+        }
+        
+        .contact-qrcode {
+            width: 100%;
+            max-width: 180px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            background-color: white;
+            padding: 10px;
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .navbar-collapse {
+                background-color: white;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                z-index: 1000;
+                padding: 1rem;
+            }
+            
+            .contact-avatar {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .vertical-text {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-code me-2"></i>Kiro IDE
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">功能介绍</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#download">下载中心</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">联系支持</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-12 animate-on-scroll">
+                    <h1>几分钟内构建真实项目</h1>
+                    <p class="hero-subtitle">预览期间免费使用Kiro</p>
+                    <a href="#download" class="download-btn">
+                        <i class="fas fa-download me-1"></i> 立即下载
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What is Kiro IDE -->
+    <section class="section-white" id="about">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center mb-5 animate-on-scroll">
+                    <h2 class="section-title fw-bold mb-4">什么是 Kiro IDE？</h2>
+                    <p class="lead">Kiro 是由亚马逊AWS推出的新一代AI集成开发环境（IDE），基于Claude Sonnet 4.0模型构建，旨在通过<strong>规格驱动开发(Spec-Driven Development)</strong> 解决传统"氛围编程(vibe coding)"带来的混乱问题。这款工具不仅能生成代码，更能自动创建需求文档、设计蓝图和任务清单，真正实现从原型到生产环境的无缝衔接。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section-purple" id="features">
+        <div class="container">
+            <h2 class="text-center fw-bold section-title mb-5">✨ 核心功能亮点</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3 animate-on-scroll">
+                    <div class="card feature-card h-100">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="bg-primary bg-opacity-10 p-2 rounded me-3">
+                                    <i class="fas fa-file-alt text-primary"></i>
+                                </div>
+                                <h5 class="card-title mb-0">规格驱动开发</h5>
+                            </div>
+                            <p class="card-text">自动生成requirements.md、design.md和tasks.md三份"活文档"，保持与代码库同步更新</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 animate-on-scroll delay-1">
+                    <div class="card feature-card h-100">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="bg-primary bg-opacity-10 p-2 rounded me-3">
+                                    <i class="fas fa-link text-primary"></i>
+                                </div>
+                                <h5 class="card-title mb-0">智能钩子系统</h5>
+                            </div>
+                            <p class="card-text">事件驱动的自动化触发器，在保存文件时自动更新测试、修改API时刷新文档、提交前扫描敏感信息</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 animate-on-scroll delay-2">
+                    <div class="card feature-card h-100">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="bg-primary bg-opacity-10 p-2 rounded me-3">
+                                    <i class="fas fa-project-diagram text-primary"></i>
+                                </div>
+                                <h5 class="card-title mb-0">多模态上下文集成</h5>
+                            </div>
+                            <p class="card-text">无缝处理代码库、文档、图片、git差异等多种输入形式</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 animate-on-scroll delay-3">
+                    <div class="card feature-card h-100">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="bg-primary bg-opacity-10 p-2 rounded me-3">
+                                    <i class="fas fa-plug text-primary"></i>
+                                </div>
+                                <h5 class="card-title mb-0">兼容VS Code生态</h5>
+                            </div>
+                            <p class="card-text">基于Code OSS构建，支持所有Open VSX插件和原有配置</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="section-white" id="download">
+        <div class="container">
+            <h2 class="text-center fw-bold section-title mb-5">📥 下载专区</h2>
+            <p class="text-center mb-5 text-dark">选择适合您操作系统的版本：</p>
+            
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-8 col-lg-6">
+                    <!-- Windows Version -->
+                    <div class="card download-card p-4 mb-4 animate-on-scroll">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div class="d-flex align-items-center">
+                                <i class="fab fa-windows fa-2x os-icon"></i>
+                                <div>
+                                    <h5 class="mb-0">Windows 版本</h5>
+                                    <small class="text-muted">支持Windows 10及以上系统</small>
+                                </div>
+                            </div>
+                            <a href="https://pan.quark.cn/s/0944441a8c9b" target="_blank" class="download-btn">
+                                <i class="fas fa-download me-1"></i> 下载
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Mac Intel Version -->
+                    <div class="card download-card p-4 mb-4 animate-on-scroll delay-1">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div class="d-flex align-items-center">
+                                <i class="fab fa-apple fa-2x os-icon"></i>
+                                <div>
+                                    <h5 class="mb-0">Mac Intel 版本</h5>
+                                    <small class="text-muted">适用于Intel芯片的Mac设备</small>
+                                </div>
+                            </div>
+                            <a href="https://pan.quark.cn/s/4dc3d25c6bbf" target="_blank" class="download-btn">
+                                <i class="fas fa-download me-1"></i> 下载
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Mac M Series Version -->
+                    <div class="card download-card p-4 mb-4 animate-on-scroll delay-2">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div class="d-flex align-items-center">
+                                <i class="fab fa-apple fa-2x os-icon"></i>
+                                <div>
+                                    <h5 class="mb-0">Mac M系列版本</h5>
+                                    <small class="text-muted">专为Apple Silicon芯片优化</small>
+                                </div>
+                            </div>
+                            <a href="https://pan.quark.cn/s/b322bc57d09f" target="_blank" class="download-btn">
+                                <i class="fas fa-download me-1"></i> 下载
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Linux Version -->
+                    <div class="card download-card p-4 animate-on-scroll delay-3">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div class="d-flex align-items-center">
+                                <i class="fab fa-linux fa-2x os-icon"></i>
+                                <div>
+                                    <h5 class="mb-0">Linux 版本</h5>
+                                    <small class="text-muted">支持Ubuntu 20.04+、Fedora 34+等主流发行版</small>
+                                </div>
+                            </div>
+                            <a href="https://pan.quark.cn/s/fd7665a94e43" target="_blank" class="download-btn">
+                                <i class="fas fa-download me-1"></i> 下载
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section-purple" id="contact">
+        <div class="container">
+            <h2 class="text-center fw-bold section-title mb-5">📱 联系与支持</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-8 text-center">
+                    <p class="lead mb-5">遇到下载或使用问题？欢迎通过以下方式交流：</p>
+                    
+                    <div class="row g-4 align-items-center justify-content-center">
+                        <!-- WeChat Public Account -->
+                        <div class="col-md-5 animate-on-scroll">
+                            <div class="card contact-card p-4 h-100">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title mb-3">公众号：围巾哥萧尘</h5>
+                                    <div class="mb-3 d-flex justify-content-center">
+                                        <img src="./二维码.jpg" alt="公众号二维码" class="contact-qrcode">
+                                    </div>
+                                    <p class="text-muted">扫码关注获取最新资讯</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Divider -->
+                        <div class="col-1 d-none d-md-block">
+                            <div class="vr h-100 opacity-25 bg-white"></div>
+                        </div>
+                        
+                        <!-- Personal WeChat -->
+                        <div class="col-md-5 animate-on-scroll delay-1">
+                            <div class="card contact-card p-4 h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title mb-4">个人微信：xiaochenwin</h5>
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        <img src="./围巾哥萧尘头像.png" alt="个人头像" class="contact-avatar">
+                                        <span class="vertical-text">围巾哥萧尘</span>
+                                    </div>
+                                    <p class="text-muted text-center mt-3">添加时请注明"Kiro用户"</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2025 Kiro IDE下载站 | 亚马逊AWS官方合作伙伴</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Scroll animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const animateElements = document.querySelectorAll('.animate-on-scroll');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            animateElements.forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Add delay classes
+            const delayElements = document.querySelectorAll('.animate-on-scroll');
+            delayElements.forEach((el, index) => {
+                if (index % 4 === 0) el.classList.add('delay-0');
+                if (index % 4 === 1) el.classList.add('delay-1');
+                if (index % 4 === 2) el.classList.add('delay-2');
+                if (index % 4 === 3) el.classList.add('delay-3');
+            });
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // Navbar scroll effect
+            window.addEventListener('scroll', function() {
+                const navbar = document.querySelector('.navbar');
+                if (window.scrollY > 50) {
+                    navbar.classList.add('py-2');
+                    navbar.classList.remove('py-3');
+                } else {
+                    navbar.classList.add('py-3');
+                    navbar.classList.remove('py-2');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
